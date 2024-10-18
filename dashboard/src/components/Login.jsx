@@ -1,0 +1,87 @@
+// eslint-disable-next-line no-unused-vars
+import React, { useContext, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Context } from "../main";
+import axios from "axios";
+
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+
+  const navigateTo = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await axios
+        .post(
+          "http://localhost:4000/api/v1/user/login",
+          { email, password, confirmPassword, role: "Admin" },
+          {
+            withCredentials: true,
+            headers: { "Content-Type": "application/json" },
+          }
+        )
+        .then((res) => {
+          toast.success(res.data.message);
+          setIsAuthenticated(true);
+          navigateTo("/");
+          setEmail("");
+          setPassword("");
+          setConfirmPassword("");
+        });
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
+  if (isAuthenticated) {
+    return <Navigate to={"/"} />;
+  }
+
+  return (
+    <>
+      <section className="container form-component">
+        <img
+          style={{ width: "35%" }}
+          src="/logo1.png"
+          alt="logo"
+          className="logo"
+        />
+        <h1 className="form-title">CHÀO MỪNG ĐẾN VỚI ENGLISHMANAGE CENTER</h1>
+        <p>
+          Chỉ có quản trị viên mới được phép truy cập vào các tài nguyên này!
+        </p>
+        <form onSubmit={handleLogin}>
+          <input
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Mật khẩu"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Xác nhận mật khẩu"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <div style={{ justifyContent: "center", alignItems: "center" }}>
+            <button type="submit">Đăng nhập</button>
+          </div>
+        </form>
+      </section>
+    </>
+  );
+};
+
+export default Login;
