@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { GoCheckCircleFill } from "react-icons/go";
 import { AiFillCloseCircle } from "react-icons/ai";
-
+import ChatBox from "./ChatBox";
 const Dashboard = () => {
   const [courses, setCourses] = useState([]);
 
@@ -15,7 +15,9 @@ const Dashboard = () => {
       try {
         const { data } = await axios.get(
           "http://localhost:4000/api/v1/course/getall",
-          { withCredentials: true }
+          {
+            withCredentials: true,
+          }
         );
         setCourses(data.courses);
         // eslint-disable-next-line no-unused-vars
@@ -138,6 +140,7 @@ const Dashboard = () => {
           {}
         </div>
       </section>
+      <ChatBox></ChatBox>
     </>
   );
 };

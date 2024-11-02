@@ -1,6 +1,6 @@
 import Hero from "../components/Hero";
 import CourseForm from "../components/CourseForm";
-
+import ChatBox from "../components/ChatBox";
 const Course = () => {
   return (
     <>
@@ -9,6 +9,7 @@ const Course = () => {
         imageUrl={"/signin.png"}
       />
       <CourseForm />
+      <ChatBox />
     </>
   );
 };
