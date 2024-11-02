@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import Biography from "../components/Biography";
+import ChatBox from "../components/ChatBox";
 const AboutUs = () => {
   return (
     <>
@@ -8,6 +9,7 @@ const AboutUs = () => {
         imageUrl={"/about1.png"}
       />
       <Biography imageUrl={"/whoweare.png"} />
+      <ChatBox></ChatBox>
     </>
   );
 };

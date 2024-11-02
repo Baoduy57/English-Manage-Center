@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Context } from "../main";
 import axios from "axios";
-
+import ChatBox from "./ChatBox";
 const AddNewLecturer = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
@@ -174,6 +174,7 @@ const AddNewLecturer = () => {
           </div>
         </form>
       </section>
+      <ChatBox />
     </section>
   );
 };
