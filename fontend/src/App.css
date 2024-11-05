@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"); */
 * {
   margin: 0;
   padding: 0;
@@ -8,13 +8,16 @@
 }
 body {
   background: #e5e5e5;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
 }
 .btn {
-  padding: 7px 20px;
-  border-radius: 12px;
+  padding: 10px 25px;
+  border-radius: 10px;
   border: none;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
+  font-size: 18px;
 }
 .white-btn {
   background: #fff;
@@ -27,23 +30,24 @@ body {
 p,
 span,
 a {
-  font-size: 20px;
+  font-size: 18px; /* Giảm font-size để nội dung không quá to */
+  line-height: 1.6;
 }
 h1 {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 900;
-}
-h1 {
-  font-size: 36px;
-  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 h2 {
-  font-size: 32px;
-  font-weight: 900;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 h3 {
   font-size: 28px;
-  font-weight: 900;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 h4 {
   font-size: 24px;
@@ -65,26 +69,64 @@ h6 {
   }
 }
 .container {
-  padding: 0 100px;
+  padding: 0 80px;
 }
+.container.majors {
+  padding: 20px;
+  text-align: center;
+}
+
+.container.majors h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
 @media (max-width: 700px) {
   .container {
     padding: 0 20px;
   }
 }
+@media (max-width: 700px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  p,
+  span,
+  a {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .btn {
+    padding: 8px 20px;
+    font-size: 16px;
+  }
+}
 .hero {
   display: flex;
-  gap: 50px;
-  padding-top: 120px;
-  padding-bottom: 120px;
+  gap: 40px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   position: relative;
 }
 .hero .banner {
-  flex: 1;
+  font-size: 36px;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
 }
 .hero .banner h1,
 .hero .banner p {
-  max-width: 650px;
+  color: #333;
+  letter-spacing: 1px;
+  line-height: 1.8;
+  max-width: 600px;
 }
 .hero .banner h1 {
   letter-spacing: 2px;
@@ -149,12 +191,14 @@ h6 {
     }
   }
 }
-.form-component {
-  padding-top: 40px;
-  padding-bottom: 60px;
+.form-component,
+.biography,
+.departments {
+  padding-top: 60px;
+  padding-bottom: 82px;
 }
 .form-component h2 {
-  color: gray;
+  color: black;
   letter-spacing: 4px;
   margin-bottom: 30px;
 }
@@ -181,10 +225,10 @@ h6 {
 .form-component form select,
 .form-component form textarea {
   flex: 1;
-  font-size: 24px;
-  padding: 10px 10px 10px 40px;
-  border-radius: 7px;
-  border: 1px solid gray;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 .form-component button {
   padding: 10px 35px;
@@ -255,8 +299,6 @@ h6 {
 .biography {
   display: flex;
   gap: 50px;
-  padding-top: 40px;
-  padding-bottom: 60px;
 }
 .biography .banner:first-child {
   flex: 1;
@@ -288,10 +330,48 @@ h6 {
 }
 .message-form h2 {
   text-align: center;
-  color: #000;
+  color: #333;
   position: relative;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.message-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.message-form input,
+.message-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+}
+.message-form input:focus,
+.message-form textarea:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+.message-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.message-form button:hover {
+  background-color: #357abd;
 }
 .message-form img {
+  margin-top: 20px;
   position: absolute;
   top: 0;
   right: -16%;
@@ -304,14 +384,37 @@ h6 {
     height: 450px;
     top: 10%;
   }
+  .message-form form div {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .message-form input,
+  .message-form textarea {
+    font-size: 14px;
+  }
+
+  .card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Canh giữa nội dung trong thẻ */
+    transition: transform 0.3s ease;
+    margin: 10px;
+  }
 }
+
 footer {
-  padding-bottom: 30px !important;
+  padding: 50px 0 !important;
 }
 footer hr {
   margin-bottom: 30px;
 }
 footer .content {
+  padding-left: 60px;
   display: flex;
   gap: 20px;
 }
@@ -322,13 +425,17 @@ footer .content div:nth-child(3) {
   flex: 2;
 }
 footer .content div h4 {
+  font-size: 22px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 footer .content div ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  color: #555;
+  font-size: 16px;
+  transition: color 0.3s;
 }
 footer .content div ul a {
   color: gray;
@@ -383,49 +490,44 @@ footer .content div:last-child div svg {
   }
 }
 
-.departments {
-  padding-top: 30px;
-  padding-bottom: 50px;
-}
 .departments h2 {
   color: gray;
   margin-bottom: 30px;
 }
 .card {
+  background-color: #f9f9f9;
   position: relative;
   border-radius: 8px;
-  flex: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 15px;
-  padding-left: 10px;
-  padding-right: 20px;
+  flex-direction: column;
+  justify-content: space-between;
   min-height: 360px;
   margin: 0 10px;
-  text-decoration: none;
+  padding: 0;
 }
+
 .card img {
-  position: absolute;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  top: 0;
-  left: 0;
+  object-fit: cover;
+}
+.depart-name {
+  font-size: 18px; /* Tăng kích thước chữ */
+  font-weight: 700; /* Chữ đậm hơn */
+  color: #000000;
+  text-align: center;
+  background: rgba(186, 186, 186, 0.85); /* Màu nền tối hơn và mờ */
+  padding: 12px; /* Tăng padding */
+  margin: 0;
+  border-radius: 0 0 8px 8px; /* Bo góc dưới cùng */
+  box-sizing: border-box;
+  width: 100%;
 }
 .card .depart-name {
-  margin-bottom: 30px;
-  background: #e5e5e5;
-  width: 320px;
-  font-size: 24px;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: center;
-  padding: 12px;
-  border-radius: 30px;
-  left: 0;
-  height: fit-content;
-  font-weight: 700;
+  font-size: 24px; /* Kích thước chữ lớn */
+  font-weight: 700; /* Độ đậm chữ */
 }
 
 /**********************************************************************************************************************/
@@ -570,7 +672,31 @@ nav svg {
     width: 100%;
   }
 }
+input {
+  width: 100%; /* Chiều rộng của input */
+  padding: 10px; /* Khoảng cách bên trong */
+  border: 1px solid #ccc; /* Viền ngoài */
+  border-radius: 5px; /* Bo tròn các góc */
+  font-size: 16px; /* Kích thước chữ */
+  box-sizing: border-box; /* Đảm bảo chiều rộng bao gồm padding và border */
+}
 
+input:focus {
+  border-color: #007bff; /* Màu viền khi input được chọn */
+  outline: none; /* Xóa viền mặc định */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Hiệu ứng bóng đổ */
+}
+
+input[type="submit"] {
+  background-color: #007bff; /* Màu nền cho nút submit */
+  color: white; /* Màu chữ */
+  border: none; /* Bỏ viền */
+  cursor: pointer; /* Đổi con trỏ thành hình bàn tay */
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3; /* Đổi màu khi rê chuột qua */
+}
 input[type="date"]:before {
   content: attr(placeholder);
   color: #444;
@@ -585,5 +711,5 @@ input[type="time"]:before {
   width: 150px;
 }
 footer .logo-img {
-  width: 100%;
+  width: 50%;
 }
