@@ -47,7 +47,7 @@ const Login = () => {
     <>
       <section className="container form-component">
         <img
-          style={{ width: "35%" }}
+          style={{ width: "30%" }}
           src="/logo1.png"
           alt="logo"
           className="logo"

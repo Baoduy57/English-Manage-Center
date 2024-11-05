@@ -4,6 +4,7 @@ import { Context } from "../main";
 import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
+import ChatBot from "../components/ChatBot";
 
 const AddNewAdmin = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
@@ -66,7 +67,7 @@ const AddNewAdmin = () => {
     <section className="page">
       <section className="container form-component add-admin-form">
         <img
-          style={{ width: "35%" }}
+          style={{ width: "30%" }}
           src="/logo1.png"
           alt="logo"
           className="logo"
@@ -133,6 +134,7 @@ const AddNewAdmin = () => {
           </div>
         </form>
       </section>
+      <ChatBot />
     </section>
   );
 };

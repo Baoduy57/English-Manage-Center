@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Context } from "../main";
 import axios from "axios";
+import ChatBot from "../components/ChatBot";
 
 const AddNewLecturer = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
@@ -88,7 +89,7 @@ const AddNewLecturer = () => {
     <section className="page">
       <section className="container form-component add-doctor-form">
         <img
-          style={{ width: "35%" }}
+          style={{ width: "25%" }}
           src="/logo1.png"
           alt="logo"
           className="logo"
@@ -174,6 +175,7 @@ const AddNewLecturer = () => {
           </div>
         </form>
       </section>
+      <ChatBot />
     </section>
   );
 };

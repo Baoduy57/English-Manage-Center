@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Context } from "../main";
 import { Navigate } from "react-router-dom";
+import ChatBot from "../components/ChatBot";
 
 const Lecturers = () => {
   const [lecturers, setLecturers] = useState([]);
@@ -11,10 +12,11 @@ const Lecturers = () => {
   useEffect(() => {
     const fetchLecturers = async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:4000/api/v1/user/lecturers",
-          { withCredentials: true }
-        );
+        const {
+          data,
+        } = await axios.get("http://localhost:4000/api/v1/user/lecturers", {
+          withCredentials: true,
+        });
         setLecturers(data.lecturers);
       } catch (error) {
         toast.error(error.response.data.message);
@@ -67,6 +69,7 @@ const Lecturers = () => {
           <h1>Không tìm thấy giảng viên đã đăng ký!</h1>
         )}
       </div>
+      <ChatBot />
     </section>
   );
 };

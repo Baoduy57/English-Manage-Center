@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 // import { toast } from "react-toastify";
 import { Context } from "../main";
 import { Navigate } from "react-router-dom";
+import ChatBot from "../components/ChatBot";
 
 const Messages = () => {
   const [messages, setMessages] = useState([]);
@@ -11,10 +12,11 @@ const Messages = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:4000/api/v1/message/getall",
-          { withCredentials: true }
-        );
+        const {
+          data,
+        } = await axios.get("http://localhost:4000/api/v1/message/getall", {
+          withCredentials: true,
+        });
         setMessages(data.messages);
       } catch (error) {
         console.log(error.response.data.message);
@@ -59,6 +61,7 @@ const Messages = () => {
           <h1>Không có tin nhắn!</h1>
         )}
       </div>
+      <ChatBot />
     </section>
   );
 };

@@ -6,6 +6,7 @@ import { AiFillMessage } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaUserTie } from "react-icons/fa6";
 import { MdAddModerator } from "react-icons/md";
+import { BiDollarCircle } from "react-icons/bi";
 import { IoPersonAddSharp } from "react-icons/io5";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -53,6 +54,11 @@ const Sidebar = () => {
     navigateTo("/admin/addnew");
     setShow(!show);
   };
+  const gotoSalaryFeeManagement = () => {
+    // New function for Salary and Fee Management
+    navigateTo("/salary-fee-management");
+    setShow(!show);
+  };
 
   return (
     <>
@@ -66,6 +72,7 @@ const Sidebar = () => {
           <MdAddModerator onClick={gotoAddNewAdmin} />
           <IoPersonAddSharp onClick={gotoAddNewLecturer} />
           <AiFillMessage onClick={gotoMessagesPage} />
+          <BiDollarCircle onClick={gotoSalaryFeeManagement} />
           <RiLogoutBoxFill onClick={handleLogout} />
         </div>
       </nav>

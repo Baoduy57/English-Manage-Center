@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"); */
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +8,8 @@
 }
 body {
   background: #3939d9f2;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
 }
 .container {
   padding: 0 100px;
@@ -41,14 +43,23 @@ body {
     width: 100%;
   }
 }
+.logo {
+  display: block;
+  margin: 0 auto 1.5rem;
+}
 .form-title {
-  font-size: 1.75rem;
+  /* font-size: 1.75rem;
   color: #111;
-  margin-bottom: 30px;
+  margin-bottom: 30px; */
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
 }
 .form-component {
-  padding-top: 40px;
-  padding-bottom: 60px;
+  /* padding-top: 40px;
+  padding-bottom: 60px; */
   min-height: 100vh;
   background: #e5e5e5;
 
@@ -99,7 +110,7 @@ body {
   font-size: 24px;
   padding: 10px 10px 10px 40px;
   border-radius: 7px;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 }
 .form-component button {
   padding: 10px 35px;
@@ -160,6 +171,7 @@ body {
   flex-direction: column;
   gap: 20px;
 }
+
 .dashboard .banner:first-child {
   height: 35vh;
   display: flex;
@@ -353,6 +365,7 @@ body {
   color: #fff;
   padding: 70px 0;
 }
+
 .sidebar svg {
   width: 50px;
   height: 50px;
@@ -503,6 +516,13 @@ body {
   gap: 25px;
   padding: 0;
 }
+.first-wrapper img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
 .add-doctor-form form {
   width: 100%;
 }
@@ -515,8 +535,9 @@ body {
 }
 .add-doctor-form form .first-wrapper div:first-child img {
   width: 100%;
-  height: 515px;
+  height: 50%;
   margin-bottom: 20px;
+  object-fit: cover;
 }
 .add-doctor-form form .first-wrapper div:first-child input {
   width: 100%;
@@ -533,7 +554,7 @@ body {
 .add-doctor-form form .first-wrapper div:last-child {
   flex: 2;
   display: flex;
-  gap: 30px;
+  gap: 20px;
   flex-direction: column;
 }
 .add-doctor-form form input,
@@ -543,7 +564,7 @@ body {
   font-size: 24px;
   padding: 10px 10px 10px 40px;
   border-radius: 7px;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 }
 .add-doctor-form button {
   padding: 10px 35px;
@@ -573,4 +594,114 @@ input[type="time"]:before {
   content: attr(placeholder);
   color: #444;
   margin-right: 0.5em;
+}
+input {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+  outline: none;
+}
+.form-component form .input-group {
+  display: flex;
+  gap: 20px; /* Adjusted gap for better spacing */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+.input-field {
+  flex: 1;
+  font-size: 24px; /* Consistent font size */
+  padding: 12px; /* Increased padding for a more comfortable input area */
+  border-radius: 8px; /* More rounded corners for a softer look */
+  border: 1px solid #ccc; /* Light gray border for subtlety */
+  transition: border-color 0.3s; /* Smooth transition for focus state */
+}
+
+.input-field:focus {
+  border-color: #3939d9; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+.submit-button {
+  padding: 12px 40px; /* Increased padding for the button */
+  color: #fff;
+  font-weight: 700;
+  width: fit-content;
+  border: none;
+  border-radius: 8px;
+  font-size: 24px;
+  margin-bottom: 30px;
+  background: linear-gradient(140deg, #9083d5, #271776ca);
+  cursor: pointer; /* Show pointer on hover */
+}
+
+.submit-button:hover {
+  background: linear-gradient(
+    140deg,
+    #6a6ac1,
+    #1a1a5a
+  ); /* Slightly darker on hover */
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+  margin: 10px;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+}
+.input-container,
+.image-container {
+  padding: 15px;
+  margin: 15px;
+}
+/* .container.form-component.add-doctor-form {
+  max-width: 800px;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+} */
+.first-wrapper div input[type="text"],
+.first-wrapper div input[type="number"],
+.first-wrapper div input[type="date"],
+.first-wrapper div input[type="password"],
+.first-wrapper div select {
+  width: 100%;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+.first-wrapper div select,
+.first-wrapper div input[type="file"] {
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+button[type="submit"] {
+  width: 100%;
+  padding: 0.7rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
 }
